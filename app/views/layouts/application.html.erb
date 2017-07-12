@@ -24,9 +24,9 @@
 
 <nav>
   <div class="nav-wrapper light-blue darken-1">
-    <a href="#" class="brand-logo">Logo</a>
+    <a href="/" class="brand-logo">Logo</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a href="/ad/index">College Store</a></li>
+      <li><%= link_to 'College Store', ads_path %></li>
       <li>
         <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Study Material</a>
 
@@ -44,7 +44,9 @@
     </ul>
   </div>
 </nav>
-
+ <% if user_signed_in? %>
+<%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+<% end %>
 
 <%= yield %>
 

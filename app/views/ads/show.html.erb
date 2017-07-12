@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= User.find_by_id(@ad.user_id).username %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @ad.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @ad.description %>
+</p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= @ad.contact %>
+</p>
+
+<p>
+  <strong>College:</strong>
+  <%= @ad.college %>
+</p>
+
+<p>
+  <strong>Branch:</strong>
+  <%= @ad.branch %>
+</p>
+
+<p>
+  <strong>Semester:</strong>
+  <%= @ad.semester %>
+</p>
+
+<!-- <%= link_to 'Edit', edit_ad_path(@ad) %> | -->
+<%= link_to 'Back', ads_path %>

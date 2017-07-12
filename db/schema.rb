@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170711152114) do
+ActiveRecord::Schema.define(version: 20170712190256) do
 
   create_table "ads", force: :cascade do |t|
     t.integer  "user_id"

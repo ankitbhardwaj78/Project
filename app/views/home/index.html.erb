@@ -1,38 +1,18 @@
-<!-- 
-<nav>
-  <div class="nav-wrapper light-blue darken-1">
-    <a href="#" class="brand-logo">Logo</a>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a href="#">College Store</a></li>
-      <li>
-        <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Study Material</a>
 
-        <!-- Dropdown Structure -->
-   <!--      <ul id='dropdown1' class='dropdown-content'>
-          <li><a href="#!">Books</a></li>
-          <li><a href="#!">Notes</a></li>
-          <li><a href="#!">Question Paper</a></li>
-          <li><a href="#!">Video Links</a></li>
-          <!--<li><a href="#!"><i class="material-icons">cloud</i>five</a></li>-->
-     <!--    </ul>
-      </li>
-      <li><a href="#">Forum</a></li>
-    </ul>
-  </div>
-</nav>
- -->
-
-
-<div id="index-banner" class="parallax-container">
-  <div class="section no-pad-bot">
+<div id="index-banner" class="parallax-container" style="background: url(background.gif); background-size: cover;">
+  <div class="section no-pad-bot" >
     <div class="container">
       <br><br>
       <h1 class="header center teal-text text-lighten-2">Project Name</h1>
       <div class="row center">
-        <h5 class="header col s12 light">A portal for all kinds of books, notes, question papers and more...</h5>
+        <h5 class="header col s12 light white-text">A portal for all kinds of books, notes, question papers and more...</h5>
       </div>
       <div class="row center">
+        <% if user_signed_in? %>
+                  <a class="waves-effect waves-light btn">WELCOME, <%= current_user.username %></a>
 
+        <% end %>
+        <% unless user_signed_in? %>
         <!-- Modal Trigger -->
         <a class="waves-effect waves-light btn" href="#modal1">Login</a>
 
@@ -65,14 +45,16 @@
         <div class="modal-footer">
           <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
         </div>
+        <% end %>
+
       </div>
 
-        </div>
+    </div>
     <br><br>
 
   </div>
 </div>
-<div class="parallax"><img src="images/background1.jpg" alt="Unsplashed background img 1"></div>
+<!-- <div class="parallax"><img src="background1.jpg" alt="Unsplashed background img 1"></div> -->
 </div>
 
 

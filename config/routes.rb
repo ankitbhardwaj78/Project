@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get '/ad/index'
 
+  resources :ads
   devise_for :users, :controllers => { registrations: 'registrations' }
 
   root 'home#index'
