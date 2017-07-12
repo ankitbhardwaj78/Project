@@ -4,8 +4,6 @@ $(document).ready(function(){
     $('.modal').modal();
   });
 
-
-
 $('.dropdown-button').dropdown({
         inDuration: 300,
         outDuration: 225,
