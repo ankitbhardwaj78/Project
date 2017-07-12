@@ -20,6 +20,32 @@
 <body>
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
+
+
+<nav>
+  <div class="nav-wrapper light-blue darken-1">
+    <a href="#" class="brand-logo">Logo</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="/ad/index">College Store</a></li>
+      <li>
+        <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Study Material</a>
+
+        <!-- Dropdown Structure -->
+        <ul id='dropdown1' class='dropdown-content'>
+          <li><a href="#!">Books</a></li>
+          <li><a href="#!">Notes</a></li>
+          <!--<li class="divider"></li>-->
+          <li><a href="#!">Question Paper</a></li>
+          <li><a href="#!">Video Links</a></li>
+          <!--<li><a href="#!"><i class="material-icons">cloud</i>five</a></li>-->
+        </ul>
+      </li>
+      <li><a href="#">Forum</a></li>
+    </ul>
+  </div>
+</nav>
+
+
 <%= yield %>
 
 </body>
