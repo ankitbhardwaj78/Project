@@ -2,6 +2,30 @@
 
 
 
+<<<<<<< HEAD
+=======
+<nav>
+  <div class="nav-wrapper light-blue darken-1">
+    <a href="#" class="brand-logo">Logo</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="#">College Store</a></li>
+      <li>
+        <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Study Material</a>
+
+        <!-- Dropdown Structure -->
+        <ul id='dropdown1' class='dropdown-content'>
+          <li><a href="#!">Books</a></li>
+          <li><a href="#!">Notes</a></li>
+          <li><a href="#!">Question Paper</a></li>
+          <li><a href="#!">Video Links</a></li>
+          <!--<li><a href="#!"><i class="material-icons">cloud</i>five</a></li>-->
+        </ul>
+      </li>
+      <li><a href="#">Forum</a></li>
+    </ul>
+  </div>
+</nav>
+>>>>>>> 6447eed6652d375038d7165aac91037c075d1c87
 
 
 
@@ -18,22 +42,43 @@
         <!-- Modal Trigger -->
         <a class="waves-effect waves-light btn" href="#modal1">Login</a>
 
-        <!-- Modal Structure -->
+        <!-- Modal Structure login-->
         <div id="modal1" class="modal">
           <div class="modal-content">
-            <h4>Modal Header</h4>
-            <p>A bunch of text</p>
+           <h2>Log in</h2>
+
+           <%= form_for @user, :as => :user, :url => new_user_session_path(@user) do |f| %>
+           <div class="field">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true %>
           </div>
-          <div class="modal-footer">
-            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+
+          <div class="field">
+            <%= f.label :password %><br />
+            <%= f.password_field :password, autocomplete: "off" %>
           </div>
+
+
+          <div class="actions">
+            <%= f.submit "Log in" %>
+          </div>
+          <% end %>
+          <%= link_to "Sign up", new_user_registration_path(@user) %><br />
+          <%= link_to "Forgot your password?", new_password_path(@user) %><br />
+          <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(@user) %><br />
+
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
         </div>
       </div>
-      <br><br>
 
-    </div>
+        </div>
+    <br><br>
+
   </div>
-  <div class="parallax"><img src="images/background1.jpg" alt="Unsplashed background img 1"></div>
+</div>
+<div class="parallax"><img src="images/background1.jpg" alt="Unsplashed background img 1"></div>
 </div>
 
 
