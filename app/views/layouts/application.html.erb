@@ -18,8 +18,18 @@
 
 </head>
 <body>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+
+<% if notice %>
+    <script type="text/javascript">
+        Materialize.toast('<%= notice %>', 4000)
+    </script>
+<% end %>
+<% if alert %>
+    <script type="text/javascript">
+        Materialize.toast('<%= alert %>', 4000)
+    </script>
+<% end %>
+
 
 
 <nav>
@@ -40,7 +50,11 @@
           <!--<li><a href="#!"><i class="material-icons">cloud</i>five</a></li>-->
         </ul>
       </li>
+
       <li><a href="#">Forum</a></li>
+      <% if user_signed_in? %>
+          <li><a href="#">My Account</a></li>
+      <% end %>
     </ul>
   </div>
 </nav>

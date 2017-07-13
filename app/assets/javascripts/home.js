@@ -15,3 +15,7 @@ $('.dropdown-button').dropdown({
         stopPropagation: false // Stops event propagation
     }
 );
+function show(message, duration) {
+    Materialize.toast('message', duration); // 4000 is the duration of the toast
+
+}
