@@ -128,8 +128,6 @@ GEM
     sdoc (0.4.2)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
-    snackbarjs-rails (1.0.0)
-      railties
     spring (2.0.2)
       activesupport (>= 4.2)
     sprockets (3.7.1)
@@ -172,7 +170,6 @@ DEPENDENCIES
   rails_utils
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
-  snackbarjs-rails
   spring
   sqlite3
   turbolinks
