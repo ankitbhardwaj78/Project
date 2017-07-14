@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
+  resources :materials
   get '/ad/index'
 
   devise_for :users, :controllers => { registrations: 'registrations' }
 
   root 'home#index'
 
+  get '/material/questionpaper'
+  get '/material/notes'
+  get '/material/semnotes'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

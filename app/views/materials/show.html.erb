@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Semester:</strong>
+  <%= @material.semester %>
+</p>
+
+<p>
+  <strong>Branch:</strong>
+  <%= @material.branch %>
+</p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @material.subject %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @material.type %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @material.title %>
+</p>
+
+<p>
+  <strong>AddedBy:</strong>
+  <%= @material.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_material_path(@material) %> |
+<%= link_to 'Back', materials_path %>
