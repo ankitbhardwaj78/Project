@@ -43,17 +43,19 @@
         <!-- Dropdown Structure -->
         <ul id='dropdown1' class='dropdown-content'>
           <li><a href="#!">Books</a></li>
-          <li><a href="#!">Notes</a></li>
+          <li><a href="/material/notes">Notes</a></li>
           <!--<li class="divider"></li>-->
-          <li><a href="#!">Question Paper</a></li>
+          <li><a href="/material/questionpaper">Question Paper</a></li>
           <li><a href="#!">Video Links</a></li>
           <!--<li><a href="#!"><i class="material-icons">cloud</i>five</a></li>-->
         </ul>
       </li>
 
+      <li><%= link_to "Log out",  destroy_user_session_path, method: "delete" %></li>
+
       <li><a href="#">Forum</a></li>
       <% if user_signed_in? %>
-          <li><a href="#">My Account</a></li>
+          <li><a href="/users/edit">My Account</a></li>
       <% end %>
     </ul>
   </div>

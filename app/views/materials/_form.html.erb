@@ -1,0 +1,51 @@
+<%= form_for(@material) do |f| %>
+<% if @material.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@material.errors.count, "error") %> prohibited this material from being saved:</h2>
+
+  <ul>
+    <% @material.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div class="field">
+  <%= f.label :semester %><br>
+  <%= f.text_field :semester %>
+</div>
+<div class="field">
+  <%= f.label :branch %><br>
+  <%= f.text_field :branch %>
+</div>
+<div class="field">
+  <%= f.label :subject %><br>
+  <%= f.text_field :subject %>
+</div>
+<div class="field">
+  <%= f.label :category %><br>
+  <%= f.text_field :category %>
+</div>
+<div class="field">
+  <%= f.label :title %><br>
+  <%= f.text_field :title %>
+</div>
+
+<%= f.file_field :file, multiple: true %>
+
+<div class="field">
+  <div class="file-field input-field">
+    <div class="btn">
+      <span>File</span>
+      <input type="file">
+    </div>
+    <div class="file-path-wrapper">
+    <input class="file-path validate" type="text" name="file">
+    </div>
+  </div>  
+</div>
+<div class="actions">
+  <%= f.submit %>
+</div>
+<% end %>
