@@ -26,9 +26,20 @@ class MaterialsController < ApplicationController
   # POST /materials
   # POST /materials.json
   def create
+    #params.permit(:file,:semester, :branch, :subject, :category, :title)
     @material = Material.new(material_params)
-    @material.file=params[:file]
-    puts params[:file]
+    uploaded_file = material_params[:file]
+    puts material_params
+    filename = SecureRandom.hex + "." +uploaded_file.original_filename.split('.')[1]
+    puts "hello"
+    puts filename
+    filepath = Dir.pwd + "/public/uploadedfiles/" + filename
+    puts filepath
+    File.open(filepath,'wb') do |file|
+      file.write(uploaded_file.read())
+    end
+
+    @material.file=filepath
     @material.user_id=current_user.id
     respond_to do |format|
       if @material.save
@@ -73,6 +84,6 @@ class MaterialsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def material_params
-      params.require(:material).permit(:semester, :branch, :subject, :category, :title, :references)
+      params.require(:material).permit(:semester, :branch, :subject, :category, :title, :file)
     end
   end
