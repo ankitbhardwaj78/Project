@@ -29,17 +29,12 @@ class MaterialsController < ApplicationController
     #params.permit(:file,:semester, :branch, :subject, :category, :title)
     @material = Material.new(material_params)
     uploaded_file = material_params[:file]
-    puts material_params
-    filename = SecureRandom.hex + "." +uploaded_file.original_filename.split('.')[1]
-    puts "hello"
-    puts filename
     filepath = Dir.pwd + "/public/uploadedfiles/" + filename
-    puts filepath
     File.open(filepath,'wb') do |file|
       file.write(uploaded_file.read())
     end
 
-    @material.file=filepath
+    @material.file=uploaded_file.original_filename
     @material.user_id=current_user.id
     respond_to do |format|
       if @material.save
