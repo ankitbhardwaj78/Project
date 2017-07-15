@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :materials
+  resources :materials do
+  collection do
+    get :download
+  end
+end
+
   get '/ad/index'
 
   devise_for :users, :controllers => { registrations: 'registrations' }
