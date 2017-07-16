@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'profile/remove_profile_pic'
+
   resources :materials
   get '/ad/index'
 
@@ -11,6 +13,8 @@ Rails.application.routes.draw do
   get '/material/questionpaper'
   get '/material/notes'
   get '/material/semnotes'
+
+  post '/remove_profile_pic'=>'profile#remove_profile_pic'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
