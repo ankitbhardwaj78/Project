@@ -1,8 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Materials</h1>
-
-<table>
+<%= link_to 'New Material', new_material_path %>
+<!-- <table>
   <thead>
     <tr>
       <th>Semester</th>
@@ -33,6 +32,32 @@
   </tbody>
 </table>
 
-<br>
+<br> -->
 
-<%= link_to 'New Material', new_material_path %>
+<% @materials.each do |material| %>
+
+<div class="row" id="materialcard">
+  <div class="col s12">
+    <div class="card #F5F2ED">
+      <div class="card-content white-text">
+        <span class="card-title">Card Title</span>
+        <p>Semester:<%= material.semester %></p>
+        <p>Branch:<%= material.branch %></p>
+        <p>Subject:<%= material.subject %></p>
+        <p>category:<%= material.category %></p>
+        <p>Title:<%= material.title %></p>
+        <p>User_id:<%= material.user_id %></p>
+        </div>
+        <div class="card-action">
+         <%= link_to 'Show', material %>
+         <%= link_to 'Download', download_materials_path(material,id:material.id) %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<br>
+  <%end%>
+
+
+

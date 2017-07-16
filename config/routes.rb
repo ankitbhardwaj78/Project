@@ -5,8 +5,11 @@ Rails.application.routes.draw do
   end
 end
 
+
+  resources :materials
   get '/ad/index'
 
+  resources :ads
   devise_for :users, :controllers => { registrations: 'registrations' }
 
   root 'home#index'
