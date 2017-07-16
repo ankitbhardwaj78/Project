@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :materials do
+  collection do
+    get :download
+  end
+end
+
 
   resources :materials
   get '/ad/index'
