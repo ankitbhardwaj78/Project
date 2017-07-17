@@ -35,6 +35,8 @@ class MaterialsController < ApplicationController
   # POST /materials
   # POST /materials.json
   def create
+
+    puts params
     #params.permit(:file,:semester, :branch, :subject, :category, :title)
     @material = Material.new(material_params)
     filename=params[:material][:file]
