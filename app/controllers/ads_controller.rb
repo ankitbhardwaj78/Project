@@ -1,11 +1,16 @@
 class AdsController < ApplicationController
-  before_action :set_ad, only: [:show, :edit, :update, :destroy]
+  before_action :set_ad, only: [:show, :edit, :update, :destroy, :contact]
   before_action :authenticate_user!, only: [:new ,:show]
   # GET /ads
   # GET /ads.json
   def index
     @ads = Ad.all
   end
+
+ def contact
+    UserContact.connect(User.find_by_id(@ad.user_id).email, current_user).deliver_now
+    redirect_to '/ads'
+ end
 
   # GET /ads/1
   # GET /ads/1.json

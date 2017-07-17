@@ -19,63 +19,63 @@
 </head>
 <body>
 
-<% if notice %>
-    <script type="text/javascript">
-        Materialize.toast('<%= notice %>', 4000)
-    </script>
-<% end %>
-<% if alert %>
-    <script type="text/javascript">
-        Materialize.toast('<%= alert %>', 4000)
-    </script>
-<% end %>
-
-
-
-<nav>
-  <div class="nav-wrapper light-blue darken-1">
-    <a href="/" class="brand-logo">Logo</a>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><%= link_to 'College Store', ads_path %></li>
-      <li>
-        <a class='dropdown-button ' href='#' data-activates='dropdown1'>Study Material</a>
-
-        <!-- Dropdown Structure -->
-        <ul id='dropdown1' class='dropdown-content'>
-          <li><a href="#!">Books</a></li>
-          <li><a href="/material/notes">Notes</a></li>
-          <!--<li class="divider"></li>-->
-          <li><a href="/material/questionpaper">Question Paper</a></li>
-          <li><a href="#!">Video Links</a></li>
-          <!--<li><a href="#!"><i class="material-icons">cloud</i>five</a></li>-->
-        </ul>
-      </li>
-
-      <li><%= link_to "Log out",  destroy_user_session_path, method: "delete" %></li>
-
-      <li><a href="#">Forum</a></li>
-      <% if user_signed_in? %>
-          <li><a href="/users/edit">My Account</a></li>
-      <% end %>
-    </ul>
-  </div>
-</nav>
- <!--<% if user_signed_in? %>-->
-<!--<%= link_to 'Logout', destroy_user_session_path, method: :delete %>-->
-<!--<% end %>-->
-
-<div class="fixed-action-btn">
-
-  <% if user_signed_in? %>
-      <%= link_to '<i class="material-icons">exit to app</i>', destroy_user_session_path, method: :delete, class: "btn-floating btn-large waves-effect waves-light red"  %>
-
+  <% if notice %>
+  <script type="text/javascript">
+    Materialize.toast('<%= notice %>', 4000)
+  </script>
+  <% end %>
+  <% if alert %>
+  <script type="text/javascript">
+    Materialize.toast('<%= alert %>', 4000)
+  </script>
   <% end %>
 
 
-<!--<a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">input</i></a>-->
-</div>
 
-<%= yield %>
+  <nav>
+    <div class="nav-wrapper light-blue darken-1">
+      <a href="/" class="brand-logo">Logo</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><%= link_to 'College Store', ads_path %></li>
+        <li>
+          <a class='dropdown-button ' href='#' data-activates='dropdown1'>Study Material</a>
+
+          <!-- Dropdown Structure -->
+          <ul id='dropdown1' class='dropdown-content'>
+            <li><a href="#!">Books</a></li>
+            <li><a href="/material/notes">Notes</a></li>
+            <!--<li class="divider"></li>-->
+            <li><a href="/material/questionpaper">Question Paper</a></li>
+            <li><a href="#!">Video Links</a></li>
+            <!--<li><a href="#!"><i class="material-icons">cloud</i>five</a></li>-->
+          </ul>
+        </li>
+        <%unless user_signed_in? %>
+        <li><%= link_to "Sign up", new_user_registration_path(@user) %></li>
+        <%end%>
+        <li><a href="#">Forum</a></li>
+        <% if user_signed_in? %>
+        <li><a href="/users/edit">My Account</a></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+  <!--<% if user_signed_in? %>-->
+  <!--<%= link_to 'Logout', destroy_user_session_path, method: :delete %>-->
+  <!--<% end %>-->
+
+  <div class="fixed-action-btn">
+
+    <% if user_signed_in? %>
+    <%= link_to '<i class="material-icons">exit to app</i>', destroy_user_session_path, method: :delete, class: "btn-floating btn-large waves-effect waves-light red"  %>
+
+    <% end %>
+
+
+    <!--<a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">input</i></a>-->
+  </div>
+
+  <%= yield %>
 
 </body>
 </html>

@@ -8,8 +8,10 @@ end
 
   get 'profile/remove_profile_pic'
 
+
   resources :materials
   get '/ad/index'
+  get '/contact' => 'ads#contact'
 
   resources :ads
   devise_for :users, :controllers => { registrations: 'registrations' }

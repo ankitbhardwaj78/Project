@@ -35,5 +35,9 @@
   <%= @ad.semester %>
 </p>
 
+<!-- <a class="waves-effect waves-light btn" href="/contact"><i class="material-icons left">contacts</i>Contact</a> -->
+<%= link_to "Contact", class: "waves-effect waves-light btn", controller: "ads", action: "contact",id: @ad %>
+
+
 <!-- <%= link_to 'Edit', edit_ad_path(@ad) %> | -->
 <%= link_to 'Back', ads_path %>
