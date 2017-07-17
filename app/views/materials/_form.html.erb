@@ -23,6 +23,7 @@
   <%= f.label :subject %><br>
   <%= f.text_field :subject %>
 </div>
+
 <div class="field">
   <%= f.label :category %><br>
   <%= f.text_field :category %>
@@ -31,20 +32,10 @@
   <%= f.label :title %><br>
   <%= f.text_field :title %>
 </div>
-
-<%= f.file_field :file, multiple: true %>
-
 <div class="field">
-  <div class="file-field input-field">
-    <div class="btn">
-      <span>File</span>
-      <input type="file">
-    </div>
-    <div class="file-path-wrapper">
-    <input class="file-path validate" type="text" name="file">
-    </div>
-  </div>  
+<%= f.file_field :file %>
 </div>
+
 <div class="actions">
   <%= f.submit %>
 </div>

@@ -2,7 +2,11 @@ Rails.application.routes.draw do
 
   get 'profile/remove_profile_pic'
 
-  resources :materials
+  resources :materials do
+  collection do
+    get :download
+  end
+end
   get '/ad/index'
 
   resources :ads

@@ -25,6 +25,7 @@
         <td><%= material.title %></td>
         <td><%= material.user_id %></td>
         <td><%= link_to 'Show', material %></td>
+        <td><%= link_to 'Download', download_materials_path(material,id:material.id) %></td>
         <td><%= link_to 'Edit', edit_material_path(material) %></td>
         <td><%= link_to 'Destroy', material, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

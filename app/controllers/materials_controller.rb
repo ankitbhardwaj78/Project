@@ -1,6 +1,6 @@
 class MaterialsController < ApplicationController
 
-  before_action :set_material, only: [:show, :edit, :update, :destroy]
+  before_action :set_material, only: [:show, :edit, :update, :destroy ,:download]
   before_action :authenticate_user!, only: [:edit, :update, :destroy,:new, :create]
 
   # GET /materials
@@ -14,6 +14,15 @@ class MaterialsController < ApplicationController
   def show
   end
 
+
+  def download
+    puts params
+    extension=@material.file.split('.')
+    send_file Rails.root.join('public','uploadedfiles',@material.file),
+    :type=>"application/#{extension[1]}", :x_sendfile=>true
+  end
+
+
   # GET /materials/new
   def new
     @material = Material.new
@@ -26,9 +35,19 @@ class MaterialsController < ApplicationController
   # POST /materials
   # POST /materials.json
   def create
+    #params.permit(:file,:semester, :branch, :subject, :category, :title)
     @material = Material.new(material_params)
-    @material.file=params[:file]
-    puts params[:file]
+    filename=params[:material][:file]
+    File.open(Rails.root.join('public','uploadedfiles',filename.original_filename), 'wb') do |file|
+      file.write(filename.read)
+    end
+    # uploaded_file = material_params[:file]
+    # filepath = Dir.pwd + "/public/uploadedfiles/" + filename
+    # File.open(filepath,'wb') do |file|
+    #   file.write(uploaded_file.read())
+    # end
+
+    @material.file=filename.original_filename
     @material.user_id=current_user.id
     respond_to do |format|
       if @material.save
@@ -73,6 +92,6 @@ class MaterialsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def material_params
-      params.require(:material).permit(:semester, :branch, :subject, :category, :title, :references)
+      params.require(:material).permit(:semester, :branch, :subject, :category, :title, :file)
     end
   end
