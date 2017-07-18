@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require materialize-sprockets
 //= require turbolinks
-//= require_tree .
+//= require_directory .
 
 
 
