@@ -1,154 +1,162 @@
 <div class="container">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put , :multipart => true}) do |f| %>
   <%=  devise_error_messages! %>
-    <div class="row">
-      <div class="input-field col s8 offset-s2">
-        <div class="profile">
-          <div class="pic">
-            <div class="img"><%= image_tag current_user.profile_pic.url || current_user.default_url %></div>
-            <i class="icon-plus"></i>
-            <i class="icon-ok"></i>
-          </div>
-          <h4><%= current_user.username %></h4>
+  <div class="row">
+    <div class="input-field col s8 offset-s2">
+      <div class="profile">
+        <div class="pic">
+          <div class="img" id="img"><%= image_tag current_user.profile_pic.url || current_user.default_url %></div>
+          <i class="icon-plus"></i>
+          <i class="icon-ok"></i>
         </div>
-      </div>  
-    </div>
-    <%= f.file_field :profile_pic %>
-    <%= link_to 'Remove',remove_profile_pic_path,method: :post %>
-
-    <div class="row">
-      <div class="input-field col s3 offset-s2 field">
-        <%= f.email_field :email, autofocus: true,:class=>"validate" %>
-        <%= f.label :email, :class => "active", data: {:error => "Provide correct email address", :success =>  "right"} %>
+        <h4><%= current_user.username %></h4>
       </div>
 
-      <div class="input-field col s3 offset-s2 field">
-        <%= f.text_field :username,:class=>"validate" %>
-        <%= f.label :username %>
-      </div>
+      <%= link_to 'Remove Profile Pic',remove_profile_pic_path,method: :post,class: "waves-effect waves-light btn" %>
+    </div>  
+  </div>
+  <%= f.file_field :profile_pic ,id: "uploadimagefield"%>
+  
+
+  <div class="row">
+    <div class="input-field col s3 offset-s2 field">
+      <%= f.email_field :email, autofocus: true,:class=>"validate" %>
+      <%= f.label :email, :class => "active", data: {:error => "Provide correct email address", :success =>  "right"} %>
     </div>
 
-    <div class="row">
-      <div class="input-field col s3 offset-s2 field">
-        <%= f.text_field :first_name, autofocus: true,:class=>"validate" %>
-        <%= f.label :first_name %>
-      </div>
+    <div class="input-field col s3 offset-s2 field">
+      <%= f.text_field :username,:class=>"validate" %>
+      <%= f.label :username %>
+    </div>
+  </div>
 
-       <div class="input-field col s3 offset-s2 field">
-        <%= f.text_field :last_name, autofocus: true,:class=>"validate" %>
-        <%= f.label :last_name %>
-      </div>
+  <div class="row">
+    <div class="input-field col s3 offset-s2 field">
+      <%= f.text_field :first_name, autofocus: true,:class=>"validate" %>
+      <%= f.label :first_name %>
     </div>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-    <% end %>
+    <div class="input-field col s3 offset-s2 field">
+      <%= f.text_field :last_name, autofocus: true,:class=>"validate" %>
+      <%= f.label :last_name %>
+    </div>
+  </div>
 
-    <div class="row">
-      <div class="input-field col s3 offset-s2 field">
-        <%= f.text_field :college, autocomplete: "off",:class=>"validate" %>
-        <%= f.label :college %>
-      </div>
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+  <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
 
-      <div class="input-field col s3 offset-s2 field">
-        <%= f.select :branch, User::OPTIONS %>
-        <%= f.label :branch %>
-      </div>
+  <div class="row">
+    <div class="input-field col s3 offset-s2 field">
+      <%= f.text_field :college, autocomplete: "off",:class=>"validate" %>
+      <%= f.label :college %>
     </div>
 
+    <div class="input-field col s3 offset-s2 field">
+      <%= f.select :branch, User::OPTIONS %>
+      <%= f.label :branch %>
+    </div>
+  </div>
 
-    <div class="row">
-      <div class="input-field col s3 offset-s2 field">
-        <%= f.password_field :password, autocomplete: "off" , placeholder: "leave blank if you don't want to change it",:class=>"validate" %>
-        <%= f.label :password %>
-      </div>
 
-      <div class="input-field col s3 offset-s2 field">
-        <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "reconfirm new password",:class=>"validate"  %>
-        <%= f.label :password_confirmation,class: 'active' %>
-      </div>
-
+  <div class="row">
+    <div class="input-field col s3 offset-s2 field">
+      <%= f.password_field :password, autocomplete: "off" , placeholder: "leave blank if you don't want to change it",:class=>"validate" %>
+      <%= f.label :password %>
     </div>
 
-    <div class="row">
-      <div class="input-field col s3 offset-s2 field">
-        <%= f.text_field :semester, autocomplete: "off" %>
-        <%= f.label :semester,class: 'active' %><br />
-      </div>
-
-      <div class="input-field col s3 offset-s2 field">
-        <%= f.password_field :current_password, autocomplete: "off",placeholder: "current password required" %>
-        <%= f.label :current_password,class: 'active' %> 
-      </div>
+    <div class="input-field col s3 offset-s2 field">
+      <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "reconfirm new password",:class=>"validate"  %>
+      <%= f.label :password_confirmation,class: 'active' %>
     </div>
 
-    <div class="row">
-      <div class="input-field col s3 offset-s2">
-        <button class="btn waves-effect waves-light" type="submit" name="action">Save Changes
-          <i class="material-icons right">send</i>
-        </button>
-      </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s3 offset-s2 field">
+      <%= f.text_field :semester, autocomplete: "off" %>
+      <%= f.label :semester,class: 'active' %><br />
     </div>
+
+    <div class="input-field col s3 offset-s2 field">
+      <%= f.password_field :current_password, autocomplete: "off",placeholder: "current password required" %>
+      <%= f.label :current_password,class: 'active' %> 
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s3 offset-s2">
+      <button class="btn waves-effect waves-light" type="submit" name="action">Save Changes
+        <i class="material-icons right">send</i>
+      </button>
+    </div>
+    <%= link_to 'Delete My Account', registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete,class: "waves-effect waves-light btn" %>
+  </div>
   <% end %>
 
 </div>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
 
 <style type="text/css">
   .profile{
-  display: block;
-  width: 100%;
-  height: 235px;
-  border-radius: 5px;
-  background: #fff;
-  box-shadow: 0 2px 10px rgba(0,0,0,.25);
-  padding: 20px;
-  text-align: center;
-  box-sizing: border-box;
-}
+    display: block;
+    width: 100%;
+    height: 235px;
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,.25);
+    padding: 20px;
+    text-align: center;
+    box-sizing: border-box;
+  }
 
-.pic{
-  display: block;
-  width: 140px;
-  height: 140px;
-  border-radius: 70px;
-  background: rgba(101,132,124,.5);
-  border: 6px solid #66847C;
-  margin: auto;
-  z-index: 10;
-  overflow: hidden;
-  text-align: right;
-  cursor: pointer;
-}
+  .pic{
+    display: block;
+    width: 140px;
+    height: 140px;
+    border-radius: 70px;
+    background: rgba(101,132,124,.5);
+    border: 6px solid #66847C;
+    margin: auto;
+    z-index: 10;
+    overflow: hidden;
+    text-align: right;
+    cursor: pointer;
+  }
 
-.img{
-  background: #FDF6E3;
-  width: 140px;
-  height: 140px;
-  border-radius: 70px;
-  overflow: hidden;
-  box-shadow: 0 0 10px rgba(0,0,0,.6);
-  z-index: 10;
-}
+  .img{
+    background: #FDF6E3;
+    width: 140px;
+    height: 140px;
+    border-radius: 70px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,.6);
+    z-index: 10;
+  }
 
-img{
-  width: 100%;  
-  height: 100%;
-}
+  img{
+    width: 100%;  
+    height: 100%;
+  }
 
-h4{
-  margin: 30px 0 0 0;
-  font-size: 18px;
-  color: #66847C;
-  text-shadow: 0 2px 5px rgba(0,0,0,.15);
-}
+  h4{
+    margin: 30px 0 0 0;
+    font-size: 18px;
+    color: #66847C;
+    text-shadow: 0 2px 5px rgba(0,0,0,.15);
+  }
 
 
 </style>
 
 
+<script type="text/javascript">
+ $( "#uploadimagefield").hide();
+
+ $( "#img" ).click(function() {
+  console.log("hello");
+  $( "#uploadimagefield").click(); 
+  return false;
+});
+</script>
