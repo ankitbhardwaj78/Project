@@ -24,7 +24,7 @@
   </div>
   <% end %>
   <%= form_for(@material) do |f| %>
-  <div class="row">
+  <div class="row" id="form">
     <div class="input-field col s12">
       <%= f.label :title %><br>
       <%= f.text_field :title %>
@@ -36,7 +36,7 @@
       <%= f.text_field :subject %>
     </div>
   </div>
-  <div class="row">
+  <div class="row" id="form">
     <!-- <div class="input-field col s6">
       <%= f.label :semester %><br>
       <%= f.text_field :semester %>
