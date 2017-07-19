@@ -10,7 +10,7 @@
 * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
 * file per style scope.
 *
-*= require_tree .
+ *= require_directory .
 *= require_self
 */
 
@@ -19,16 +19,26 @@ margin: 0;
 padding: 0;
 }
 
+#profile-options{
+	position: relative;
+	
+}
+
 
 #notescard{
 width:100%;
 display:flex;
 height:600px;
+width: 100%;
 }
 
 #notescard .leftsideimage{
 width:40%;
 background-image: url(background.jpg);
+}
+
+#subjectdetail{
+	width: 100%;
 }
 
 #notescard .rightsideimage{
@@ -64,8 +74,10 @@ font-weight:bold;
 font-size:15px;
 }
 
-#profile-options{
-position: relative;
+#form{
+	width: 50vw;
+	#profile-options{
+	position: relative;
 
+	}
 }
-

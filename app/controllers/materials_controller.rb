@@ -35,6 +35,8 @@ class MaterialsController < ApplicationController
   # POST /materials
   # POST /materials.json
   def create
+    puts params
+
 
     puts params
     #params.permit(:file,:semester, :branch, :subject, :category, :title)
@@ -53,6 +55,7 @@ class MaterialsController < ApplicationController
     @material.user_id=current_user.id
     respond_to do |format|
       if @material.save
+        Newcourse.detail(@material).deliver_later
         format.html { redirect_to @material, notice: 'Material was successfully created.' }
         format.json { render :show, status: :created, location: @material }
       else

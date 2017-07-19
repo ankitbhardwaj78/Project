@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
   get 'forum/index'
-
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   resources :materials do
     collection do
       get :download
     end
   end
 
+
   get '/ad/index'
+  get '/contact' => 'ads#contact'
 
   resources :ads
   devise_for :users, :controllers => { registrations: 'registrations' }

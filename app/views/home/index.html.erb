@@ -9,12 +9,12 @@
       </div>
       <div class="row center">
         <% if user_signed_in? %>
-        <a class="waves-effect waves-light btn">WELCOME, <%= current_user.username %></a>
+        <a class="waves-effect waves-light btn" id="centre">WELCOME, <%= current_user.username %></a>
 
         <% end %>
         <% unless user_signed_in? %>
         <!-- Modal Trigger -->
-        <a class="waves-effect waves-light btn" href="#modal1">Login</a>
+        <a class="waves-effect waves-light btn" href="#modal1" id="centre">Login</a>
 
         <!-- Modal Structure login-->
         <div id="modal1" class="modal">
