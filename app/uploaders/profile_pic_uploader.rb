@@ -2,7 +2,7 @@ class ProfilePicUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+   include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
   storage :file
@@ -15,11 +15,11 @@ class ProfilePicUploader < CarrierWave::Uploader::Base
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
-  def default_url(*args)
+  def self.default_url(*args)
     # For Rails 3.1+ asset pipeline compatibility:
     # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
-      "profile_default.png"
-    #"/images/fallback/" + [version_name, "default.png"].compact.join('_')
+    #  "profile_default.png"
+    "/fallback/" + [args, "default.png"].compact.join('_')
   end
 
   # Process files as they are uploaded:
@@ -30,9 +30,9 @@ class ProfilePicUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  # version :thumb do
-  #   process resize_to_fit: [50, 50]
-  # end
+  version :thumb do
+    process resize_to_fill: [40, 40]
+  end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:

@@ -1,0 +1,11 @@
+<% str = "answer_modal_#{ques.id}" %>
+<div id="<%= str %>" class="modal">
+  <div class="modal-content">
+    <h3><%= ques.content %></h3>
+    <%= form_for :answer, url:forum_answer_path , method: :post do |f| %>
+        <%= f.text_area :content,:placeholder =>"Write here...",:id=>"answer_content" %>
+        <%= f.hidden_field :question_id,:value => ques.id %>
+        <%= f.submit 'Answer' %>
+    <% end %>
+  </div>
+</div>

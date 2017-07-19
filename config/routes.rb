@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
-
-  get 'profile/remove_profile_pic'
+  get 'forum/index'
 
   resources :materials do
-  collection do
-    get :download
+    collection do
+      get :download
+    end
   end
-end
+
   get '/ad/index'
 
   resources :ads
@@ -19,6 +19,9 @@ end
   get '/material/semnotes'
 
   post '/remove_profile_pic'=>'profile#remove_profile_pic'
+  post 'forum/question'
+  post 'forum/answer'
+  get 'forum/answer/:id' => 'forum#show_answer'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

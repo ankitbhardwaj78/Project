@@ -1,0 +1,79 @@
+// Place all the styles related to the forum controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+*{
+  box-sizing: border-box;
+}
+
+.question_details{
+
+  margin-top: 48px;
+
+  p{
+    font-weight: bold;
+    font-size: 24px;
+  }
+
+}
+
+.answer{
+
+  border-top: 1px #e2e2e2 solid;
+  padding: 16px 0;
+
+  header{
+    display:flex;
+    align-items: center;
+    img{
+      border-radius: 20px;
+      margin-right: 8px;
+    }
+
+    .info{
+
+      div:first-child{
+        font-weight: bold;
+      }
+
+      div:last-child(2){
+        color:#999;
+      }
+    }
+  }
+
+  .answer_content{
+    margin-top: 12px;
+    font-size: 16px;
+    line-height: 1.6;
+    white-space: pre-line;
+    word-wrap: break-word;
+
+  }
+
+}
+
+a.answer_submit{
+  padding: 0 6px;
+
+  i{
+    margin: 0 4px;
+    font-size: 16px;
+  }
+
+}
+
+textarea#answer_content{
+  resize: none;
+  height: 282px;
+  border: none;
+
+  &:focus{
+    outline: none;
+  }
+}
+
+.card-panel{
+  box-shadow: none;
+  border-color: #efefef;
+}

@@ -1,42 +1,66 @@
-<%= form_for(@material) do |f| %>
-<% if @material.errors.any? %>
-<div id="error_explanation">
-  <h2><%= pluralize(@material.errors.count, "error") %> prohibited this material from being saved:</h2>
 
-  <ul>
-    <% @material.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-    <% end %>
-  </ul>
-</div>
-<% end %>
+<div class="row">
+  <% if @material.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@material.errors.count, "error") %> prohibited this material from being saved:</h2>
 
-<div class="field">
-  <%= f.label :semester %><br>
-  <%= f.text_field :semester %>
-</div>
-<div class="field">
-  <%= f.label :branch %><br>
-  <%= f.text_field :branch %>
-</div>
-<div class="field">
-  <%= f.label :subject %><br>
-  <%= f.text_field :subject %>
+    <ul>
+      <% @material.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <%= form_for(@material) do |f| %>
+  <div class="row">
+    <div class="input-field col s12">
+      <%= f.label :title %><br>
+      <%= f.text_field :title %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+      <%= f.label :subject %><br>
+      <%= f.text_field :subject %>
+    </div>
+  </div>
+  <div class="row">
+    <!-- <div class="input-field col s6">
+      <%= f.label :semester %><br>
+      <%= f.text_field :semester %>
+    </div> -->
+
+    <%= f.select :semester, [["Semester", ""], ["First", 1], ["Second", 2], ["Third", 3], ["Fourth", 4], ["Fifth", 5], ["Sixth", 6], ["Seventh", 7], ["Eighth", 8]], {}, {class: "form-control"} %>
+    <span>&nbsp; </span>
+    <%= f.select :branch, [["Branch", ""], ["CSE", "CSE"], ["IT", "IT"], ["ECE", "ECE"], ["EEE", "EEE"], ["ICE", "ICE"]], {}, {class: "form-control"} %>
+    <!-- <div class="input-field col s6">
+      <%= f.label :branch %><br>
+      <%= f.text_field :branch %>
+    </div> -->
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+
+      <%= f.select :category, [["Category", ""], ["Notes", "Notes"], ["Question Paper", "Question Paper"], ["Books", "Books"]], {}, {class: "form-control"} %>
+    </div>
+  </div>
+
+
+
+
+  
+  <!-- <div class="waves-effect waves-light btn"> -->
+  <!-- <div class="field"> -->
+  <%= f.file_field :file %>
+  <!-- </div> -->
+  <!-- </div> -->
+  <br>
+  <br>
+  <div class="waves-effect waves-light btn">
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  </div>
+  <% end %>
 </div>
 
-<div class="field">
-  <%= f.label :category %><br>
-  <%= f.text_field :category %>
-</div>
-<div class="field">
-  <%= f.label :title %><br>
-  <%= f.text_field :title %>
-</div>
-<div class="field">
-<%= f.file_field :file %>
-</div>
-
-<div class="actions">
-  <%= f.submit %>
-</div>
-<% end %>

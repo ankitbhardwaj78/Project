@@ -5,7 +5,7 @@
       <div class="input-field col s8 offset-s2">
         <div class="profile">
           <div class="pic">
-            <div class="img"><%= image_tag current_user.profile_pic.url || current_user.default_url %></div>
+            <div class="img"><%= image_tag current_user.profile_pic.url || ProfilePicUploader.default_url %></div>
             <i class="icon-plus"></i>
             <i class="icon-ok"></i>
           </div>
@@ -15,6 +15,7 @@
     </div>
     <%= f.file_field :profile_pic %>
     <%= link_to 'Remove',remove_profile_pic_path,method: :post %>
+
 
     <div class="row">
       <div class="input-field col s3 offset-s2 field">
