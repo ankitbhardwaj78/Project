@@ -1,0 +1,18 @@
+<div class="container">
+
+  <%= form_for :question, url:forum_question_path, method: :post, remote: true do |f| %>
+      <%= f.text_area :content,:id=>"question_content" %>
+      <%= f.submit 'ASK' %>
+  <% end %>
+
+  <div id="questions">
+    <% @questions.each do |q| %>
+      <%= render 'question',:ques => q %>
+      <%= render 'answer',:ques=>q %>
+
+  <% end %>
+  </div>
+
+
+</div>
+

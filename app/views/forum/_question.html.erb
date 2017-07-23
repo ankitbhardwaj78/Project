@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col s6 offset-s2">
+    <div class="card-panel">
+          <span>
+            <%= ques.content %>
+            <blockquote>
+              asked by <%= ques.user.username %>
+            </blockquote>
+          </span>
+
+          <% str = "#answer_modal_#{ques.id}" %>
+          <%= link_to "Answer This question",str %>
+          <%= link_to "View Answers","/forum/answer/#{ques.id}" %>
+    </div>
+  </div>
+</div>

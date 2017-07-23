@@ -1,0 +1,46 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col s6 offset-s2">
+      <div class="question_details">
+        <p><%= @question.content %></p>
+        <% str = "#answer_modal_#{@question.id}" %>
+        <a href ="<%= str %>" class="waves-effect waves-light btn answer_submit"><i class="fa fa-pencil" aria-hidden="true"></i>
+          Answer</a>
+        <%= render 'answer',:ques=>@question %>
+      </div>
+    </div>
+  </div>
+
+
+  <% @answers.each do |a| %>
+    <div class="row">
+      <div class="col s6 offset-s2">
+        <div class="answer">
+          <header>
+            <%= image_tag a.user.profile_pic.thumb.url || ProfilePicUploader.default_url(:thumb) %>
+            <div class="info">
+              <% if a.user.first_name.length>0 %>
+                  <div><%= "#{a.user.first_name} #{a.user.last_name}" %></div>
+              <% else %>
+                  <div><%= "#{a.user.username}" %></div>
+              <% end %>
+              <% if a.created_at == a.updated_at %>
+                <div>Answered: <%= a.updated_at.strftime("%a, %B %d %Y %I:%M %P") %></div>
+              <% else %>
+                <div>Updated: <%= a.updated_at.strftime("%a, %B %d %Y %I:%M %P") %></div>
+              <% end  %>
+            </div>
+          </header>
+
+          <div class="answer_content">
+            <%= a.content %>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+
+</div>

@@ -1,15 +1,23 @@
 <div class="container">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put , :multipart => true}) do |f| %>
   <%=  devise_error_messages! %>
-  <div class="row">
-    <div class="input-field col s8 offset-s2">
-      <div class="profile">
-        <div class="pic">
-          <div class="img" id="img"><%= image_tag current_user.profile_pic.url || current_user.default_url %></div>
-          <i class="icon-plus"></i>
-          <i class="icon-ok"></i>
+<!-- <<<<<<< HEAD
+ -->    <div class="row">
+      <div class="input-field col s8 offset-s2">
+        <div class="profile">
+          <div class="pic">
+            <div class="img" id="img"><%= image_tag current_user.profile_pic.url || ProfilePicUploader.default_url %></div>
+            <i class="icon-plus"></i>
+            <i class="icon-ok"></i>
+          </div>
+          <h4><%= current_user.username %></h4>
         </div>
-        <h4><%= current_user.username %></h4>
+      </div>  
+    </div>
+    <div class="row">
+      <div class="input-field col s3 offset-s2 field">
+        <%= f.email_field :email, autofocus: true,:class=>"validate" %>
+        <%= f.label :email, :class => "active", data: {:error => "Provide correct email address", :success =>  "right"} %>
       </div>
 
       <%= link_to 'Remove Profile Pic',remove_profile_pic_path,method: :post,class: "waves-effect waves-light btn" %>

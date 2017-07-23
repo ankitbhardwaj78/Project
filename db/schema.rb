@@ -60,6 +60,17 @@ ActiveRecord::Schema.define(version: 20170718135351) do
 
   add_index "ads", ["user_id"], name: "index_ads_on_user_id"
 
+  create_table "answers", force: :cascade do |t|
+    t.string   "content"
+    t.integer  "question_id"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "answers", ["question_id"], name: "index_answers_on_question_id"
+  add_index "answers", ["user_id"], name: "index_answers_on_user_id"
+
   create_table "materials", force: :cascade do |t|
     t.integer  "semester"
     t.string   "branch"
@@ -73,6 +84,15 @@ ActiveRecord::Schema.define(version: 20170718135351) do
   end
 
   add_index "materials", ["user_id"], name: "index_materials_on_user_id"
+
+  create_table "questions", force: :cascade do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "questions", ["user_id"], name: "index_questions_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

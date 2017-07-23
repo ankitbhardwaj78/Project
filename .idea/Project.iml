@@ -153,6 +153,7 @@
     <orderEntry type="library" scope="PROVIDED" name="materialize-sass (v0.99.0, rbenv: 2.3.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mime-types (v3.1, rbenv: 2.3.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mime-types-data (v3.2016.0521, rbenv: 2.3.3) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="mini_magick (v3.8.0, rbenv: 2.3.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mini_portile2 (v2.2.0, rbenv: 2.3.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="minitest (v5.10.2, rbenv: 2.3.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="multi_json (v1.12.1, rbenv: 2.3.3) [gem]" level="application" />
@@ -176,6 +177,7 @@
     <orderEntry type="library" scope="PROVIDED" name="sprockets (v3.7.1, rbenv: 2.3.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sprockets-rails (v3.2.0, rbenv: 2.3.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sqlite3 (v1.3.13, rbenv: 2.3.3) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="subexec (v0.2.3, rbenv: 2.3.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thor (v0.19.4, rbenv: 2.3.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thread_safe (v0.3.6, rbenv: 2.3.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tilt (v2.0.7, rbenv: 2.3.3) [gem]" level="application" />
