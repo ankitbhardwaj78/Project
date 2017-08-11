@@ -8,7 +8,8 @@ class AdsController < ApplicationController
   end
 
  def contact
-    UserContact.connect(User.find_by_id(@ad.user_id).email, current_user).deliver_now
+    # puts current_user.email
+    Resque.enqueue(AdContactWorker, @ad.user_id, current_user.id)
     redirect_to '/ads'
  end
 
