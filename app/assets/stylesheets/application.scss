@@ -10,8 +10,10 @@
 * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
 * file per style scope.
 *
+
+
+ *= require_self
  *= require_directory .
-*= require_self
 */
 
 *{
@@ -20,8 +22,8 @@ padding: 0;
 }
 
 #profile-options{
-	position: relative;
-	
+position: relative;
+
 }
 
 
@@ -38,7 +40,7 @@ background-image: url(background.jpg);
 }
 
 #subjectdetail{
-	width: 100%;
+width: 100%;
 }
 
 #notescard .rightsideimage{
@@ -57,7 +59,7 @@ font-size:30px;
 }
 
 #subjectdetail{
-	width:100%;
+width:100%;
 }
 #notescard iframe[src*=vimeo] {
 width: 720px;
@@ -102,6 +104,10 @@ div.contentheader{
 
 
 #form{
+width: 50vw;
+#profile-options{
+position: relative;
+}
 	width: 50vw;
 	#profile-options{
 	position: relative;
