@@ -66,13 +66,40 @@ height: 405px;
 
 #materialcard{
 width:50vw;
+div.contentheader{
+	display:flex;
+	justify-content:space-between;
+}
+  p{
+     color:black;
+     font-weight:bold;
+      font-size:15px;
+  }
+  span{
+  font-size:25px;
+         color:red;  
+  }
+  h3{
+   font-size:15px;
+   color:black;
+  }
+  div.information{
+  display:flex;
+       div.informationunit{
+        .heading{
+        color:grey;
+        font-size:15px;
+        }
+        .detailing{
+        margin-left:10px;
+        margin-right:40px;
+             color:black;
+        font-size:15px;
+        }
+       }
+  }
 }
 
-#materialcard p{
-color:black;
-font-weight:bold;
-font-size:15px;
-}
 
 #form{
 	width: 50vw;

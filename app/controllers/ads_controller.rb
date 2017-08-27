@@ -5,6 +5,7 @@ class AdsController < ApplicationController
   # GET /ads.json
   def index
     @ads = Ad.all
+    @ad=Ad.new
   end
 
  def contact
@@ -34,7 +35,7 @@ class AdsController < ApplicationController
 
     respond_to do |format|
       if @ad.save
-        format.html { redirect_to @ad, notice: 'Ad was successfully created.' }
+        format.html { redirect_to '/ad/index', notice: 'Ad was successfully created.' }
         format.json { render :show, status: :created, location: @ad }
       else
         format.html { render :new }

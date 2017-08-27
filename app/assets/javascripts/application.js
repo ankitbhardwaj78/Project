@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.raty
+//= require ratyrate
 //= require materialize-sprockets
 //= require turbolinks
 //= require_directory .

@@ -172,6 +172,7 @@ GEM
       activesupport (>= 3.0)
       i18n
       polyamorous (~> 1.3)
+    ratyrate (1.2.2.alpha)
     rdoc (4.3.0)
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
@@ -230,6 +231,7 @@ DEPENDENCIES
   mini_magick
   rails (= 4.2.8)
   rails_utils
+  ratyrate
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
@@ -239,4 +241,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.15.1
+   1.15.4

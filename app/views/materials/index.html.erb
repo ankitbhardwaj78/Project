@@ -1,6 +1,77 @@
 <p id="notice"><%= notice %></p>
+<a class="waves-effect waves-light btn" href="#modal1" id="centre">New Material</a>
+<div id="modal1" class="modal">
+  <div class="modal-content">
+   <h2>New Material</h2>
+   <div class="row">
+  <% if @material.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@material.errors.count, "error") %> prohibited this material from being saved:</h2>
 
-<%= link_to 'New Material', new_material_path , class: "waves-effect waves-light btn"%>
+    <ul>
+      <% @material.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <%= form_for(@material) do |f| %>
+  <div class="row" id="form">
+    <div class="input-field col s12">
+      <%= f.label :title %><br>
+      <%= f.text_field :title %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+      <%= f.label :subject %><br>
+      <%= f.text_field :subject %>
+    </div>
+  </div>
+  <div class="row" id="form">
+    <!-- <div class="input-field col s6">
+      <%= f.label :semester %><br>
+      <%= f.text_field :semester %>
+    </div> -->
+
+    <%= f.select :semester, [["Semester", ""], ["First", 1], ["Second", 2], ["Third", 3], ["Fourth", 4], ["Fifth", 5], ["Sixth", 6], ["Seventh", 7], ["Eighth", 8]], {}, {class: "form-control"} %>
+    <span>&nbsp; </span>
+    <%= f.select :branch, [["Branch", ""], ["CSE", "CSE"], ["IT", "IT"], ["ECE", "ECE"], ["EEE", "EEE"], ["ICE", "ICE"]], {}, {class: "form-control"} %>
+    <!-- <div class="input-field col s6">
+      <%= f.label :branch %><br>
+      <%= f.text_field :branch %>
+    </div> -->
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+
+      <%= f.select :category, [["Category", ""], ["Notes", "Notes"], ["Question Paper", "Question Paper"], ["Books", "Books"]], {}, {class: "form-control"} %>
+    </div>
+  </div>
+
+
+
+
+  
+  <!-- <div class="waves-effect waves-light btn"> -->
+  <!-- <div class="field"> -->
+  <%= f.file_field :file %>
+  <!-- </div> -->
+  <!-- </div> -->
+  <br>
+  <br>
+  <div class="waves-effect waves-light btn">
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+
+ </div>
+</div>
+
 <!-- <table>
   <thead>
     <tr>
@@ -34,30 +105,46 @@
 
 <br> -->
 
+
 <% @materials.each do |material| %>
 
 <div class="row" id="materialcard">
   <div class="col s12">
     <div class="card #F5F2ED">
       <div class="card-content white-text">
-        <span class="card-title">Card Title</span>
-        <p>Semester:<%= material.semester %></p>
-        <p>Branch:<%= material.branch %></p>
-        <p>Subject:<%= material.subject %></p>
-        <p>category:<%= material.category %></p>
-        <p>Title:<%= material.title %></p>
-        <p>User_id:<%= material.user_id %></p>
+        <div class="contentheader">      
+          <span class="card-title"><%= material.subject %></span>
+          <%unless current_user%>
+          <span><%=link_to 'Rate This',new_user_session_path%></span>
+          <%end%>
         </div>
-        <div class="card-action">
-         <%= link_to 'Show', material %>
-         <%= link_to 'Download', download_materials_path(material,id:material.id) %>
+        <h3>Added By:<%= material.user_id %></h3>
+        <h3>Rating  : <%= rating_for material, 'rating',disable_after_rate: true, imdb_avg: true ,cancel_place: 'right',cancel_hint: 'Cancel this vote!',half_show: true%></h3>
+        <div class="information">
+          <div class="informationunit">
+            <span class="heading">Title</span> 
+            <span class="detailing"><%= material.title %></span>
+          </div>
+          <div class="informationunit">
+            <span class="heading">Semester</span> 
+            <span class="detailing"><%= material.semester %></span>
+          </div>
+          <div class="informationunit">
+            <span class="heading">Branch</span> 
+            <span class="detailing"><%= material.branch %></span>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
+      <div class="card-action">
+       <%= link_to 'Show', material %>
+       <%= link_to 'Download', download_materials_path(material,id:material.id) %>
+     </div>
+   </div>
+ </div>
+</div>
 
 <br>
-  <%end%>
+<%end%>
 
 
 
